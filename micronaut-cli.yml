@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: example.atp
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [app-name, data, data-jdbc, docker, file-watch, file-watch-osx, gradle, http-client, java, java-application, jdbc-ucp, junit, logback, netty-server, oracle, readme, shade, testcontainers, yaml]
