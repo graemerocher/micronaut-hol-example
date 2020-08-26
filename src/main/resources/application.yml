@@ -1,6 +1,10 @@
 micronaut:
   application:
     name: exampleAtp
+  http:
+    services:
+      pet-health:
+        url: http://localhost:8081
 datasources:
   default:
     url: jdbc:oracle:thin:@mnociatp_high
