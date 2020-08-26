@@ -1,4 +1,7 @@
 micronaut:
+  http.services:
+    pet-health:
+      urls: "http://localhost:8081"
   application:
     name: exampleAtp
   http:
