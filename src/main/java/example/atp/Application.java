@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Singleton;
+import javax.transaction.Transactional;
 import java.util.Arrays;
 
 @Singleton
@@ -31,6 +32,7 @@ public class Application {
     }
 
     @EventListener
+    @Transactional
     void init(StartupEvent event) {
         if (LOG.isInfoEnabled()) {
             LOG.info("Populating data");
