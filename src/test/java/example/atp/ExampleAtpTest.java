@@ -10,10 +10,6 @@ import javax.inject.Inject;
 @MicronautTest
 public class ExampleAtpTest {
 
-    static {
-        System.setProperty("oracle.jdbc.fanEnabled", "false");
-    }
-
     @Inject
     EmbeddedApplication application;
 

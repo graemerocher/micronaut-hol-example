@@ -1,6 +1,13 @@
 micronaut:
+  http.services:
+    pet-health:
+      urls: "http://localhost:8081"
   application:
     name: exampleAtp
+  http:
+    services:
+      pet-health:
+        url: http://localhost:8081
 datasources:
   default:
     url: jdbc:oracle:thin:@mnociatp_high
@@ -8,7 +15,3 @@ datasources:
     username: mnocidemo
     password: ''
     dialect: ORACLE
-    data-source-properties:
-      oracle:
-        jdbc:
-          fanEnabled: false
