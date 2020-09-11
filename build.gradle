@@ -32,7 +32,7 @@ dependencies {
     implementation("io.micronaut.data:micronaut-data-jdbc")
     developmentOnly("io.micronaut:micronaut-runtime-osx:$micronautVersion")
     runtimeOnly("ch.qos.logback:logback-classic")
-    runtimeOnly("com.oracle.ojdbc:ojdbc8")
+    runtimeOnly("com.h2database:h2")
     testAnnotationProcessor(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
     testAnnotationProcessor("io.micronaut:micronaut-inject-java")
     testImplementation(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
