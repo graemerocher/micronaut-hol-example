@@ -15,7 +15,3 @@ datasources:
     username: mnocidemo
     password: ''
     dialect: ORACLE
-    data-source-properties:
-      oracle:
-        jdbc:
-          fanEnabled: false
