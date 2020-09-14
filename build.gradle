@@ -32,15 +32,16 @@ dependencies {
     implementation("io.micronaut.data:micronaut-data-jdbc")
     developmentOnly("io.micronaut:micronaut-runtime-osx:$micronautVersion")
     runtimeOnly("ch.qos.logback:logback-classic")
-    runtimeOnly("com.oracle.ojdbc:ojdbc8")
+	  runtimeOnly("com.oracle.database.jdbc:ojdbc8")
+    runtimeOnly('com.oracle.database.security:oraclepki:19.7.0.0')
+    runtimeOnly('com.oracle.database.security:osdt_cert:19.7.0.0')
+    runtimeOnly('com.oracle.database.security:osdt_core:19.7.0.0')
     testAnnotationProcessor(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
     testAnnotationProcessor("io.micronaut:micronaut-inject-java")
     testImplementation(enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion"))
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testImplementation("io.micronaut.test:micronaut-test-junit5")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-    testImplementation(platform("org.testcontainers:testcontainers-bom:1.14.3"))
-    testRuntimeOnly("org.testcontainers:oracle-xe")
 }
 
 test.classpath += configurations.developmentOnly
@@ -84,6 +85,3 @@ tasks.withType(JavaExec) {
         )
     }
 }
-
-
-
