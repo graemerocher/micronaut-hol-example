@@ -39,8 +39,6 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testImplementation("io.micronaut.test:micronaut-test-junit5")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-    testImplementation(platform("org.testcontainers:testcontainers-bom:1.14.3"))
-    testRuntimeOnly("org.testcontainers:oracle-xe")
 }
 
 test.classpath += configurations.developmentOnly
@@ -84,6 +82,3 @@ tasks.withType(JavaExec) {
         )
     }
 }
-
-
-
