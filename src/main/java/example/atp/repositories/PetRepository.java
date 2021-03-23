@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@JdbcRepository(dialect = Dialect.ORACLE)
+@JdbcRepository(dialect = Dialect.H2)
 public interface PetRepository extends PageableRepository<Pet, UUID> {
 
     List<NameDTO> list();
