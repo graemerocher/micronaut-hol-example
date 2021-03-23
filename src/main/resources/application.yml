@@ -1,6 +1,10 @@
 micronaut:
   application:
     name: exampleAtp
+  executors:
+    io:
+      type: fixed
+      nThreads: 75    
 datasources:
   default:
     url: jdbc:oracle:thin:@mnociatp_high
