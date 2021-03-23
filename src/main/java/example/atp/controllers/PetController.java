@@ -10,8 +10,11 @@ import example.atp.repositories.PetRepository;
 import example.atp.services.PetHealthOperations;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
+import io.micronaut.scheduling.TaskExecutors;
+import io.micronaut.scheduling.annotation.ExecuteOn;
 
 @Controller("/pets")
+@ExecuteOn(TaskExecutors.IO)
 class PetController {
 
     private final PetRepository petRepository;
