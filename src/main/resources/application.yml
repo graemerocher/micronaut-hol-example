@@ -8,6 +8,10 @@ micronaut:
     services:
       pet-health:
         url: http://localhost:8081
+  executors:
+    io:
+      type: fixed
+      nThreads: 75
 datasources:
   default:
     url: jdbc:oracle:thin:@mnociatp_high

@@ -5,8 +5,7 @@ import io.micronaut.data.annotation.AutoPopulated;
 import io.micronaut.data.annotation.Id;
 import io.micronaut.data.annotation.MappedEntity;
 import io.micronaut.data.annotation.Relation;
-
-import javax.annotation.Nullable;
+import io.micronaut.core.annotation.Nullable;
 import java.util.UUID;
 
 @MappedEntity
