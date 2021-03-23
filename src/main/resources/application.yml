@@ -1,13 +1,6 @@
 micronaut:
-  http.services:
-    pet-health:
-      urls: "http://localhost:8081"
   application:
     name: exampleAtp
-  http:
-    services:
-      pet-health:
-        url: http://localhost:8081
   executors:
     io:
       type: fixed
