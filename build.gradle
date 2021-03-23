@@ -46,7 +46,3 @@ java {
     targetCompatibility = JavaVersion.toVersion("11")
 }
 
-
-test {
-    exclude '**/*Test$Intercepted*'
-}
