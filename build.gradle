@@ -31,12 +31,9 @@ dependencies {
     runtimeOnly("com.oracle.database.security:oraclepki:21.1.0.0")
     runtimeOnly("com.oracle.database.security:osdt_cert:21.1.0.0")
     runtimeOnly("com.oracle.database.security:osdt_core:21.1.0.0")
-    compileOnly("org.graalvm.nativeimage:svm")
 }
 
-nativeImage {
-    args("--enable-all-security-services")
-}
+
 application {
     mainClass.set("example.atp.Application")
 }
@@ -46,7 +43,3 @@ java {
     targetCompatibility = JavaVersion.toVersion("11")
 }
 
-
-test {
-    exclude '**/*Test$Intercepted*'
-}
