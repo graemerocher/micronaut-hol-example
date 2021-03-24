@@ -35,9 +35,6 @@ dependencies {
     runtimeOnly("io.micronaut.flyway:micronaut-flyway")
 }
 
-nativeImage {
-    args("--enable-all-security-services")
-}
 application {
     mainClass.set("example.atp.Application")
 }
