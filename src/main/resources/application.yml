@@ -7,12 +7,16 @@ micronaut:
       nThreads: 75
 datasources:
   default:
-    url: jdbc:oracle:thin:@mnociatp_high
+    url: jdbc:oracle:thin:@mnociatp_high?tnsAdmin=/tmp/wallet
     driverClassName: oracle.jdbc.OracleDriver
     username: mnocidemo
-    password: ''
+    password: MicronautDemo2021
     dialect: ORACLE
     data-source-properties:
       oracle:
         jdbc:
           fanEnabled: false
+flyway:
+  datasources:
+    default:
+      enabled: true          

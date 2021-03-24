@@ -32,6 +32,7 @@ dependencies {
     runtimeOnly("com.oracle.database.security:osdt_cert:21.1.0.0")
     runtimeOnly("com.oracle.database.security:osdt_core:21.1.0.0")
     compileOnly("org.graalvm.nativeimage:svm")
+    runtimeOnly("io.micronaut.flyway:micronaut-flyway")
 }
 
 nativeImage {
