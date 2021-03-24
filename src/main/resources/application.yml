@@ -1,6 +1,6 @@
 micronaut:
   application:
-    name: exampleAtp
+    name: example-atp
   executors:
     io:
       type: fixed
