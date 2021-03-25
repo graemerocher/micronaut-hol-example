@@ -10,7 +10,7 @@ datasources:
     url: jdbc:oracle:thin:@mnociatp_high?tns_admin=/tmp/wallet
     driverClassName: oracle.jdbc.OracleDriver
     username: mnocidemo
-    password: MicronautDemo2021
+    password: Micronaut2021
     dialect: ORACLE
     data-source-properties:
       oracle:
