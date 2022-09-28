@@ -1,18 +1,22 @@
 package example.atp;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import example.atp.domain.Owner;
 import example.atp.domain.Pet;
+import example.atp.domain.Pet.PetType;
 import example.atp.repositories.OwnerRepository;
 import example.atp.repositories.PetRepository;
 import io.micronaut.context.event.StartupEvent;
 import io.micronaut.runtime.Micronaut;
 import io.micronaut.runtime.event.annotation.EventListener;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.inject.Singleton;
-import javax.transaction.Transactional;
-import java.util.Arrays;
+import jakarta.inject.Singleton;
 
 @Singleton
 public class Application {
@@ -39,17 +43,22 @@ public class Application {
 
         petRepository.deleteAll();
         ownerRepository.deleteAll();
-        Owner fred = new Owner("Fred");
-        fred.setAge(45);
-        Owner barney = new Owner("Barney");
-        barney.setAge(40);
-        ownerRepository.saveAll(Arrays.asList(fred, barney));
+        Iterable<Owner> owners = ownerRepository.saveAll(List.of(
+                new Owner("Fred", 45),  new Owner("Barney", 40)
+        ));
+        List<Pet> pets = new ArrayList<>();
+        for(Owner person : owners) {
+            switch(person.name()) {
+                case "Fred" -> {
+                    var dino = new Pet("Dino", person);
+                    var bp = new Pet("Baby Puss", person, PetType.CAT);
+                    pets.addAll(List.of(dino, bp));
+                }
+                case "Barney" -> 
+                    pets.add(new Pet("Hoppy", person));
+            }
+        }
 
-        Pet dino = new Pet("Dino", fred);
-        Pet bp = new Pet("Baby Puss", fred);
-        bp.setType(Pet.PetType.CAT);
-        Pet hoppy = new Pet("Hoppy", barney);
-
-        petRepository.saveAll(Arrays.asList(dino, bp, hoppy));
+        petRepository.saveAll(pets);
     }
 }

@@ -1,22 +1,17 @@
 micronaut:
   application:
-    name: exampleAtp
+    name: example-atp
+  server:
+    thread-selection: IO
   executors:
     io:
       type: fixed
       nThreads: 75
 datasources:
   default:
-    url: jdbc:oracle:thin:@mnociatp_high?tns_admin=/tmp/wallet
-    driverClassName: oracle.jdbc.OracleDriver
-    username: mnocidemo
-    password: Micronaut2021
     dialect: ORACLE
-    data-source-properties:
-      oracle:
-        jdbc:
-          fanEnabled: false
 flyway:
   datasources:
     default:
       enabled: true          
+      clean-schema: true
