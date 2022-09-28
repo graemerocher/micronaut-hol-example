@@ -1,6 +1,8 @@
 micronaut:
   application:
-    name: exampleAtp
+    name: example-atp
+  server:
+    thread-selection: IO
   executors:
     io:
       type: fixed

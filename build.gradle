@@ -1,6 +1,7 @@
 plugins {
-    id("com.github.johnrengelman.shadow") version "6.1.0"
-    id("io.micronaut.application") version "1.4.2"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("io.micronaut.application") version "3.6.1"
+    id("io.micronaut.test-resources") version "3.6.1"
 }
 
 version = "0.1"
@@ -17,10 +18,14 @@ micronaut {
         incremental(true)
         annotations("example.*")
     }
+    testResources {
+        clientTimeout = 360
+    }
 }
 
 dependencies {
     annotationProcessor("io.micronaut.data:micronaut-data-processor")
+    implementation(platform("com.oracle.database.jdbc:ojdbc-bom:21.7.0.0"))
     implementation("io.micronaut.data:micronaut-data-jdbc")
     implementation("io.micronaut:micronaut-validation")
     implementation("io.micronaut:micronaut-runtime")
@@ -28,19 +33,16 @@ dependencies {
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("io.micronaut.sql:micronaut-jdbc-hikari")
     runtimeOnly("com.h2database:h2")
-    compileOnly("org.graalvm.nativeimage:svm")
     runtimeOnly("io.micronaut.flyway:micronaut-flyway")
 }
 
-nativeImage {
-    args("--enable-all-security-services")
-}
 application {
     mainClass.set("example.atp.Application")
 }
 
 java {
-    sourceCompatibility = JavaVersion.toVersion("11")
-    targetCompatibility = JavaVersion.toVersion("11")
+    sourceCompatibility = JavaVersion.toVersion("17")
+    targetCompatibility = JavaVersion.toVersion("17")
 }
+
 
